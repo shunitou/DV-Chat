@@ -16,7 +16,7 @@ function App() {
 }]);
 
 function getEngines(){
-  fetch("https://192.168.169.3:3090/models")
+  fetch("http://192.168.169.3:3090/models")
   .then(response => response.json())
   .then(data => {console.log(data.models.data); 
   setModels(data.models.data);
@@ -35,7 +35,7 @@ async function handleSubmit(e){
   setChatLog(chatLogNew)
 
   const messages = chatLogNew.map((message) => message.message).join("\n");
-const response = await fetch("https://192.168.169.3:3090/", {
+const response = await fetch("http://192.168.169.3:3090/", {
   method: "POST",
   headers: {"Content-Type": "application/json"}, 
   body: JSON.stringify({
